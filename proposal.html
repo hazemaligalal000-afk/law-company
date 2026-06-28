@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Metric — رواء القانون · حضور رقمي استراتيجي</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      --pm-green: #132C2D;
+      --pm-green-light: #1e4547;
+      --pm-teal: #0f2223;
+      --pm-dark: #0a1212;
+      --pm-obsidian: #111a1a;
+      --white: #ffffff;
+      --off-white: #f7f8fa;
+      --light-gray: #e8eaed;
+      --gold: #D4AF37;
+      --gold-light: #e8c97a;
+      --text-primary: #0a1212;
+      --text-secondary: #3a3d45;
+      --text-muted: #6E7180;
+      --gradient-hero: linear-gradient(150deg, #0a1212 0%, #0f2223 40%, #132C2D 100%);
+      --gradient-accent: linear-gradient(135deg, #132C2D 0%, #1e4547 100%);
+      --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #e8c97a 50%, #D4AF37 100%);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+      color: var(--text-primary);
+      background: var(--white);
+      line-height: 1.8;
+      direction: rtl;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media print {
+      .page {
+        max-width: 100%;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    /* ── COVER ─────────────────────────────────────── */
+    .cover {
+      min-height: 100vh;
+      background: var(--gradient-hero);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(212, 175, 55, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, .04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(19, 44, 45, .25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .cover-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover-badge {
+      background: linear-gradient(135deg, rgba(212, 175, 55, .15) 0%, rgba(212, 175, 55, .08) 100%);
+      border: 1px solid rgba(212, 175, 55, .35);
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+
+    .cover-body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 50px 0 30px;
+    }
+
+    .cover-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .cover-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .cover-title {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    .cover-title span {
+      color: var(--gold-light);
+    }
+
+    .cover-subtitle {
+      font-size: .95rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, .6);
+      max-width: 600px;
+      margin-bottom: 55px;
+      line-height: 2;
+      border-right: 2px solid rgba(212, 175, 55, .4);
+      padding-right: 18px;
+    }
+
+    .cover-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .cover-meta-item {
+      padding: 22px 24px 22px 0;
+      border-left: 1px solid rgba(255, 255, 255, .06);
+    }
+
+    .cover-meta-item:last-child {
+      border-left: none;
+    }
+
+    .cover-meta-label {
+      font-size: .65rem;
+      letter-spacing: .06em;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .cover-meta-value {
+      font-size: .85rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .cover-footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .cover-footer-text {
+      font-size: .62rem;
+      color: rgba(255, 255, 255, .3);
+      letter-spacing: .04em;
+    }
+
+    .cover-confidential {
+      font-size: .65rem;
+      letter-spacing: .06em;
+      padding: 5px 14px;
+      border: 1px solid rgba(212, 175, 55, .3);
+      border-radius: 3px;
+      color: var(--gold);
+    }
+
+    /* ── CONTENT PAGES ──────────────────────────────── */
+    .content-page {
+      padding: 52px 60px;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .content-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gradient-gold);
+      opacity: .7;
+    }
+
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      margin-bottom: 36px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .page-header-ref {
+      font-size: .62rem;
+      color: var(--text-muted);
+      letter-spacing: .08em;
+      font-weight: 600;
+    }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--pm-obsidian);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .section-divider {
+      width: 36px;
+      height: 2px;
+      background: var(--gradient-gold);
+      border-radius: 2px;
+      margin-bottom: 22px;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--pm-dark);
+      margin-top: 26px;
+      margin-bottom: 8px;
+    }
+
+    h4 {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--pm-green);
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: .88rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      line-height: 1.95;
+    }
+
+    strong {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    ul,
+    ol {
+      margin-bottom: 15px;
+      padding-right: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li,
+    ol li {
+      position: relative;
+      padding-right: 18px;
+      margin-bottom: 7px;
+      font-size: .84rem;
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .85;
+    }
+
+    ol {
+      counter-reset: ol;
+    }
+
+    ol li {
+      counter-increment: ol;
+    }
+
+    ol li::before {
+      content: counter(ol) '.';
+      position: absolute;
+      right: 0;
+      font-weight: 700;
+      color: var(--pm-green);
+      font-size: .82rem;
+    }
+
+    /* ── CARDS & BOXES ──────────────────────────────── */
+    .risk-box {
+      background: linear-gradient(135deg, #0a1212 0%, #0f2223 100%);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 18px 0;
+      border: 1px solid rgba(212, 175, 55, .15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .risk-box::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      left: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, .08) 0%, transparent 70%);
+    }
+
+    .risk-box p {
+      color: rgba(255, 255, 255, .75);
+      font-size: .86rem;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .risk-box strong {
+      color: rgba(255, 255, 255, .95);
+    }
+
+    .risk-box ul li {
+      color: rgba(255, 255, 255, .7);
+      font-size: .83rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .risk-box ul li::before {
+      background: var(--gold);
+      opacity: .9;
+    }
+
+    .authority-box {
+      background: linear-gradient(150deg, #0a1212 0%, #0f2223 60%, #132C2D 100%);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 22px 26px;
+      margin: 18px 0;
+      border: 1px solid rgba(212, 175, 55, .12);
+    }
+
+    .authority-box p {
+      color: rgba(255, 255, 255, .82);
+      font-size: .86rem;
+      margin-bottom: 8px;
+    }
+
+    .authority-box strong {
+      color: var(--white);
+    }
+
+    .authority-box ul li {
+      color: rgba(255, 255, 255, .82);
+      font-size: .83rem;
+    }
+
+    .authority-box ul li::before {
+      background: var(--gold-light);
+      opacity: 1;
+    }
+
+    .highlight-box {
+      background: var(--pm-green);
+      color: var(--white);
+      border-radius: 6px;
+      padding: 20px 24px;
+      margin: 18px 0;
+    }
+
+    .highlight-box p {
+      color: rgba(255, 255, 255, .88);
+      font-size: .86rem;
+      margin-bottom: 8px;
+    }
+
+    .highlight-box strong {
+      color: var(--white);
+    }
+
+    .highlight-box ul li {
+      color: rgba(255, 255, 255, .85);
+      font-size: .83rem;
+    }
+
+    .highlight-box ul li::before {
+      background: rgba(255, 255, 255, .7);
+    }
+
+    /* ── GRIDS & LISTS ───────────────────────────────── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin: 12px 0;
+    }
+
+    .feature-item {
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+
+    .feature-item h4 {
+      margin-top: 0;
+      margin-bottom: 2px;
+      color: var(--pm-dark);
+      font-size: .86rem;
+    }
+
+    .feature-item p {
+      font-size: .77rem;
+      margin-bottom: 0;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .module-card {
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      border-right: 3px solid var(--pm-green);
+      border-radius: 7px;
+      padding: 17px 20px;
+    }
+
+    .module-num {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      background: var(--pm-obsidian);
+      color: var(--gold-light);
+      border-radius: 5px;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .module-name {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--pm-dark);
+      margin-bottom: 5px;
+    }
+
+    .module-desc {
+      font-size: .77rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 6px;
+    }
+
+    .steps-list {
+      margin: 18px 0;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+      padding: 17px 20px;
+      background: var(--off-white);
+      border-radius: 7px;
+      border: 1px solid var(--light-gray);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--pm-obsidian);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .82rem;
+    }
+
+    .step-content h4 {
+      margin-top: 0;
+      margin-bottom: 4px;
+      color: var(--pm-dark);
+      font-size: .88rem;
+    }
+
+    .step-content p {
+      margin-bottom: 0;
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+
+    .timeline {
+      margin: 20px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .timeline-item {
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      border-top: 2px solid var(--gold);
+      border-radius: 7px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .timeline-week {
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 7px;
+      letter-spacing: .06em;
+    }
+
+    .timeline-task {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+
+    .timeline-desc {
+      font-size: .71rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── PRICING CARD ───────────────────────────────── */
+    .pricing-card {
+      background: linear-gradient(150deg, #0a1212 0%, #0f2223 50%, #132C2D 100%);
+      border-radius: 10px;
+      padding: 34px 38px;
+      color: var(--white);
+      margin: 22px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 55, .18);
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(212, 175, 55, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, .03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .pricing-right {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-right h3 {
+      color: var(--white);
+      font-size: 1.1rem;
+      margin: 0 0 7px 0;
+      line-height: 1.35;
+    }
+
+    .pricing-right p {
+      color: rgba(255, 255, 255, .65);
+      font-size: .85rem;
+      margin-bottom: 14px;
+    }
+
+    .payment-split {
+      display: flex;
+      gap: 12px;
+      flex-wrap: nowrap;
+      margin-top: 8px;
+    }
+
+    .payment-pill {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(212, 175, 55, .2);
+      border-radius: 6px;
+      padding: 10px 18px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .payment-pill-label {
+      font-size: .62rem;
+      letter-spacing: .06em;
+      color: var(--gold);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .payment-pill-value {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .pricing-left {
+      text-align: left;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .price-label {
+      font-size: .65rem;
+      letter-spacing: .08em;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .price-total {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+
+    .price-total small {
+      font-size: .85rem;
+      font-weight: 500;
+      opacity: .65;
+    }
+
+    /* ── CLOSING ────────────────────────────────────── */
+    .closing-section {
+      margin-top: 32px;
+      padding: 30px 32px;
+      background: linear-gradient(150deg, #0a1212 0%, #0f2223 50%, #132C2D 100%);
+      border-radius: 10px;
+      color: var(--white);
+      border: 1px solid rgba(212, 175, 55, .15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(212, 175, 55, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, .03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .closing-section p {
+      color: rgba(255, 255, 255, .78);
+      font-size: .88rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .closing-section strong {
+      color: var(--white);
+    }
+
+    .closing-section h2 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .signature-block {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .signature-col h4 {
+      color: var(--gold);
+      font-size: .65rem;
+      letter-spacing: .06em;
+      margin-bottom: 9px;
+      margin-top: 0;
+    }
+
+    .signature-name {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .signature-role {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .55);
+      margin-bottom: 2px;
+    }
+
+    /* ── FOOTER ─────────────────────────────────────── */
+    .page-footer {
+      margin-top: 1px;
+      padding-top: 1px;
+      border-top: 1px solid var(--light-gray);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .62rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ════════════════════════════ COVER ════════════════════════════ -->
+    <section class="cover">
+      <div class="cover-header">
+        <div class="cover-badge">عرض استراتيجي · 2026</div>
+      </div>
+
+      <div class="cover-body">
+        <div class="cover-label">رواء القانون للمحاماة</div>
+        <h1 class="cover-title">
+          حضور رقمي يعكس<br />
+          <span>ثقة مؤسسية وتميّزاً قانونياً</span>
+        </h1>
+        <p class="cover-subtitle">
+          منصة ويب استراتيجية مُصمَّمة لترسيخ مكانة مكتبكم في السوق السعودي، وتحويل الخبرة القانونية إلى حضور رقمي
+          موثوق يجذب الشركات، ويُسرّع طلبات الاستشارة، ويُعزّز ثقة العملاء من الرياض وجدة والمنطقة الشرقية.
+        </p>
+
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <div class="cover-meta-label">نموذج التسليم</div>
+            <div class="cover-meta-value">موقع قانوني مخصص</div>
+          </div>
+          <div class="cover-meta-item">
+            <div class="cover-meta-label">الهدف الرئيسي</div>
+            <div class="cover-meta-value">التحويل والمصداقية</div>
+          </div>
+          <div class="cover-meta-item">
+            <div class="cover-meta-label">الملكية</div>
+            <div class="cover-meta-value">ملكية كاملة 100% للعميل</div>
+          </div>
+          <div class="cover-meta-item">
+            <div class="cover-meta-label">الصفحات الأساسية</div>
+            <div class="cover-meta-value">5 صفحات · حجز · تواصل</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cover-footer">
+        <div class="cover-footer-text">© 2026 Prime Metric Software Company · وثيقة سرية · صالحة لمدة 30 يوماً ·
+          مُقدَّمة
+          إلى أحمد بن حمد العنزي</div>
+        <div class="cover-confidential">سري للغاية</div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ PAGE 2: فهم السوق والتحديات ════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">01 — فهم واقعكم وتحديات السوق</div>
+      <h2 class="section-title">من الخبرة القانونية إلى حضور رقمي يُولّد الثقة</h2>
+      <div class="section-divider"></div>
+
+      <p>
+        تأسّس مكتب <strong>رواء القانون للمحاماة</strong> عام 2023 على أساس واضح: خبرة متمرّسة، تخصّص دقيق، وتواصل
+        مباشر وسريع مع العميل. اليوم، ومع طموحكم لبناء اسم راسخ في السوق وتحقيق عشر عقود سنوية ثابتة، يتطلّب الأمر
+        أكثر من حضور رقمي تقليدي — يتطلّب <strong>منصة تُترجم قيمكم إلى ثقة فورية</strong> لدى صُنّاع القرار في
+        الشركات.
+      </p>
+
+      <div class="risk-box">
+        <p><strong>الفجوة بين قدرتكم القانونية وانطباع السوق الرقمي:</strong></p>
+        <ul>
+          <li><strong>غياب الحضور الرقمي المتسق:</strong> محتوى قديم وعدم وجود موقع يعكس مستوى الاحترافية والموثوقية
+            التي تميّزون بها — مما يُضعف الانطباع الأول لدى العملاء المحتملين.</li>
+          <li><strong>فقدان فرص التحويل:</strong> غياب آليات حجز الاستشارات الإلكترونية والتواصل الفوري يُحوّل
+            الزائرين المهتمين إلى منافسين أكثر سهولة في الوصول.</li>
+          <li><strong>ضعف الظهور في البحث:</strong> رغم نشاطكم في SEO وGoogle Ads ووسائل التواصل، لا يوجد مركز رقمي
+            موحّد يُجمّع هذه الجهود ويُحوّلها إلى طلبات استشارة واتصالات مباشرة.</li>
+          <li><strong>عدم مواءمة الرسالة مع جمهوركم:</strong> جمهوركم المثالي — الشركات — يبحث عن وضوح في التخصّصات،
+            سرعة في الاستجابة، وشفافية في التواصل؛ وهذا لا يظهر بشكل كافٍ في حضوركم الحالي.</li>
+          <li><strong>منافسة على ثلاثة محاور:</strong> السوق يُقيّم المحامين بالسعر والخبرة وسرعة التواصل — وهذه
+            بالضبط نقاط القوة التي يجب أن يُبرزها موقعكم من اللحظة الأولى.</li>
+        </ul>
+      </div>
+
+      <div class="authority-box">
+        <p>ما نبنيه لكم ليس قالباً جاهزاً — بل <strong>أصلاً رقمياً يعكس هوية رواء القانون</strong>:</p>
+        <ul>
+          <li><strong>هوية بصرية متسقة:</strong> الأخضر العميق (#132C2D) للثقة والاستقرار، والذهبي (#D4AF37) للتميّز
+            والمكانة — كما يعكسها شعاركم: وضوح، عدالة، وتميّز قانوني.</li>
+          <li><strong>محتوى احترافي مُعدّ خصيصاً:</strong> نصوص وكتابة تسويقية قانونية (Copywriting) تُبرز احترافيتكم
+            وخبرتكم وموثوقيتكم — الثلاث كلمات التي تُعرّفكم.</li>
+          <li><strong>ملكية كاملة:</strong> الموقع والكود والمحتوى ملككم بالكامل — بدون اشتراكات شهرية أو قيود على
+            التوسع.</li>
+          <li><strong>جاهزية للإطلاق السريع:</strong> تصميم وتطوير وSEO أساسي ضمن جدول زمني لا يتجاوز أربعة أسابيع.</li>
+        </ul>
+      </div>
+
+      <p>
+        الحل ليس موقعاً عاماً يُضاف إلى قائمة مكاتب المحاماة. ما تحتاجونه هو <strong>منصة رقمية مُصمَّمة حول
+          استراتيجيتكم</strong> — تُحوّل الزائر إلى عميل، وتُرسّخ اسم رواء القانون في الرياض وجدة والمنطقة الشرقية.
+      </p>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>2 / 11</span>
+      </div>
+    </section>
+
+    <!-- ═════════════════════════ PAGE 3: البنية المقترحة ════════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">02 — هيكل المنصة المقترحة</div>
+      <h2 class="section-title">خمس صفحات استراتيجية — مسار تحويل واضح</h2>
+      <div class="section-divider"></div>
+
+      <p>
+        كل صفحة مُصمَّمة لدور محدد في مسار العميل: من اكتشاف مكتبكم، إلى بناء الثقة، إلى طلب الاستشارة. الهيكل بسيط
+        ومركّز — بدون تعقيد يُشتّت الزائر أو يُضعف معدّل التحويل.
+      </p>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-num">1</div>
+          <div class="module-name">الصفحة الرئيسية</div>
+          <div class="module-desc">واجهة مؤسسية تُعلن عن هويتكم فوراً: رسالة قيمة واضحة، مجالات الممارسة، دعوات
+            لاتخاذ إجراء (CTA) بارزة للحجز والاتصال، وعناصر ثقة تُعزّز المصداقية من أول ثانية.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">2</div>
+          <div class="module-name">من نحن</div>
+          <div class="module-desc">سرد مؤسسي يُبرز تأسيس المكتب عام 2023، فريق المحامين المتمرّسين، وقيم العدالة
+            والنزاهة والإرشاد — مع صور احترافية تعكس مستوى المكتب.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">3</div>
+          <div class="module-name">مجالات الممارسة</div>
+          <div class="module-desc">عرض منظّم لستة تخصّصات: قانون الأسرة، الدفاع الجنائي، قانون الشركات، قانون العمل،
+            الملكية الفكرية، والتقاضي — مع وصف يُظهر عمق الخبرة ويُجيب على احتياجات الشركات.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">4</div>
+          <div class="module-name">تواصل معنا</div>
+          <div class="module-desc">نموذج تواصل متعدد الحقول، معلومات المكتب (الرياض — حي الشهداء)، أرقام الاتصال
+            المباشر، وخريطة تفاعلية — كل عنصر مُحسَّن لزيادة الاتصالات الهاتفية.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">5</div>
+          <div class="module-name">حجز استشارة إلكتروني</div>
+          <div class="module-desc">نظام حجز مواعيد متكامل مع تكامل Scheduling — يُمكّن العملاء من اختيار الموعد
+            ومجال الاستشارة مباشرة، مع تأكيد تلقائي وتذكيرات.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">+</div>
+          <div class="module-desc">قناة تواصل مباشرة وسريعة — تُعكس نقطة تميّزكم الأساسية: التواصل المباشر مع
+            المحامي دون تأخير — وتُحوّل الاستفسارات الفورية إلى فرص استشارة.</div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>3 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 4: مجالات الممارسة بالتفصيل ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">03 — عرض الخبرة القانونية</div>
+      <h2 class="section-title">تخصّصات دقيقة — رسالة واضحة لكل مجال</h2>
+      <div class="section-divider"></div>
+
+      <p>
+        كل مجال ممارسة يُعرض بصياغة احترافية تُبرز <strong>عمق الخبرة</strong> و<strong>الحلول العملية</strong> —
+        مصمَّمة لإقناع صُنّاع القرار في الشركات بأن رواء القانون الشريك المناسب، لا مجرد مكتب آخر في نتائج البحث.
+      </p>
+
+      <h3>مجالات الممارسة الستة</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>قانون الأسرة</h4>
+          <p>حماية حقوق الأفراد والأسر بخبرة متمرّسة — من النزاعات الزوجية إلى مسائل الحضانة والوصاية، مع تواصل
+            مباشر وسرعة في الإجراءات.</p>
+        </div>
+        <div class="feature-item">
+          <h4>الدفاع الجنائي</h4>
+          <p>تمثيل قانوني قوي يحمي حقوقكم — فريق متمرّس في الدفاع الجنائي مع التزام بالسرية والحزم في كل مرحلة
+            من مراحل القضية.</p>
+        </div>
+        <div class="feature-item">
+          <h4>قانون الشركات</h4>
+          <p>شريك قانوني استراتيجي للشركات — من تأسيس الكيانات إلى العقود التجارية والاندماجات، مع تسهيلات
+            واضحة وأسعار مناسبة.</p>
+        </div>
+        <div class="feature-item">
+          <h4>قانون العمل</h4>
+          <p>حماية حقوق أصحاب العمل والموظفين — استشارات وتمثيل في نزاعات العمل والامتثال للأنظمة السعودية.</p>
+        </div>
+        <div class="feature-item">
+          <h4>الملكية الفكرية</h4>
+          <p>حماية أصولكم الفكرية — تسجيل العلامات التجارية وبراءات الاختراع والدفاع عن حقوق الملكية الفكرية
+            بكفاءة ودقة.</p>
+        </div>
+        <div class="feature-item">
+          <h4>التقاضي والمرافعات</h4>
+          <p>تمثيل أمام المحاكم بخبرة عملية — إعداد المذكرات، المرافعات الشفوية، ومتابعة القضايا حتى
+            الحكم النهائي.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>رسالة التموضع أمام جمهوركم المثالي — الشركات:</strong></p>
+        <ul>
+          <li><strong>سعر مناسب:</strong> تسعير شفاف يُبرز القيمة مقابل الخبرة — يُعالج اعتراض «التكلفة المرتفعة»
+            مباشرة.</li>
+          <li><strong>خبرة ممتازة:</strong> محامون متمرّسون بتخصّص دقيق — يُعالج اعتراض «قلة الخبرة» في السوق.</li>
+          <li><strong>تواصل سريع:</strong> استجابة فورية عبر الموقع والمحادثة والهاتف — يُعالج اعتراض «ضعف التواصل
+            مع المحامي».</li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>4 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 5: التحويل والحجز ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">03 — عرض الخبرة القانونية (تابع)</div>
+      <h2 class="section-title">مسار تحويل مُحسَّن — من الزائر إلى عميل</h2>
+      <div class="section-divider"></div>
+
+      <h3>نظام حجز الاستشارات الإلكتروني</h3>
+      <div class="risk-box">
+        <p><strong>آلية تحويل مُصمَّمة لأهدافكم التجارية:</strong></p>
+        <ul>
+          <li><strong>حجز مباشر:</strong> العميل يختار التاريخ والوقت ومجال الاستشارة — بدون مكالمات متعددة أو
+            انتظار.</li>
+          <li><strong>تكامل Scheduling:</strong> ربط مع نظام جدولة احترافي يُزامن المواعيد ويُرسل تأكيدات
+            وتذكيرات تلقائية.</li>
+          <li><strong>نموذج استشارة أولية:</strong> جمع معلومات أساسية عن القضية مسبقاً — يُمكّن فريقكم من
+            الاستعداد ويُسرّع جودة الاستشارة.</li>
+          <li><strong>CTA استراتيجية:</strong> أزرار «احجز استشارتك» و«اتصل الآن» موضوعة في كل نقطة اتصال
+            حرجة — الصفحة الرئيسية، مجالات الممارسة، وصفحة التواصل.</li>
+        </ul>
+      </div>
+
+      <h3>قنوات التواصل المتكاملة</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>نماذج التواصل</h4>
+          <p>نماذج ذكية مع حقول مُخصَّصة حسب نوع الاستفسار — استشارة، قضية جديدة، أو استفسار عام — مع إشعار
+            فوري لفريقكم.</p>
+        </div>
+        <div class="feature-item">
+          <h4>المحادثة الفورية</h4>
+          <p>نموذج تواصل مُدمج في كل صفحة — للرد السريع على استفسارات الشركات المحتملة وتحويلها إلى مواعيد
+            استشارة.</p>
+        </div>
+        <div class="feature-item">
+          <h4>الاتصال المباشر</h4>
+          <p>أزرار اتصال بنقرة واحدة على الجوال (+966 50 081 6464) — لتحقيق هدف زيادة المكالمات الهاتفية
+            مباشرة.</p>
+        </div>
+        <div class="feature-item">
+          <h4>التغطية الجغرافية</h4>
+          <p>محتوى يُبرز خدمتكم في الرياض وجدة والمنطقة الشرقية — مع SEO محلي يستهدف كل منطقة.</p>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>5 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 6: SEO والتسويق الرقمي ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">04 — الظهور الرقمي ومحركات البحث</div>
+      <h2 class="section-title">SEO استراتيجي — بناء اسم في السوق</h2>
+      <div class="section-divider"></div>
+
+      <p>
+        حضوركم الحالي في SEO وGoogle Ads ووسائل التواصل يستحق مركزاً رقمياً يُضاعف أثره. نُصمّم الموقع من
+        الأساس ليكون <strong>أصل SEO</strong> — لا مجرد واجهة جميلة.
+      </p>
+
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-num">1</div>
+          <div class="module-name">SEO تقني متكامل</div>
+          <div class="module-desc">بنية URL نظيفة، Meta Tags مُحسَّنة، Schema Markup للمحاماة، Sitemap، وسرعة
+            تحميل عالية — أساس للترتيب في Google.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">2</div>
+          <div class="module-name">SEO محلي</div>
+          <div class="module-desc">استهداف الرياض وجدة والمنطقة الشرقية — Google Business Profile، كلمات مفتاحية
+            محلية، ومحتوى جغرافي مُخصَّص.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">3</div>
+          <div class="module-name">كتابة محتوى قانوني</div>
+          <div class="module-desc">نصوص احترافية لكل صفحة ومجال ممارسة — مُحسَّنة للبحث ومُصمَّمة لبناء
+            المصداقية وتحويل الزائر.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">4</div>
+          <div class="module-name">تكامل Google Analytics</div>
+          <div class="module-desc">تتبّع الزيارات، مصادر الترافيك، سلوك المستخدم، ومعدّلات التحويل — رؤية
+            واضحة لقياس النجاح.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">5</div>
+          <div class="module-name">جاهزية Google Ads</div>
+          <div class="module-desc">صفحات هبوط مُحسَّنة لحملاتكم الإعلانية الحالية — Landing Pages تُعظّم
+            معدّل التحويل من كل ريال إعلاني.</div>
+        </div>
+        <div class="module-card">
+          <div class="module-num">6</div>
+          <div class="module-name">SEO مستمر</div>
+          <div class="module-desc">إعداد أساسي لاستراتيجية SEO طويلة الأمد — بنية قابلة للتوسع بمحتوى
+            جديد ومقالات قانونية مستقبلية.</div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>6 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 7: الثقة والأمان ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">05 — الثقة والأمان والامتثال</div>
+      <h2 class="section-title">منصة تُعكس نزاهة مؤسستكم</h2>
+      <div class="section-divider"></div>
+
+      <h3>عناصر بناء الثقة</h3>
+      <div class="risk-box">
+        <p><strong>كل تفصيل يُعزّز انطباع «مؤسسة قانونية مرموقة»:</strong></p>
+        <ul>
+          <li><strong>هوية بصرية متسقة:</strong> تطبيق ألوان رواء القانون (الأخضر العميق والذهبي) في كل عنصر —
+            من الأزرار إلى العناوين — لتجربة مؤسسية موحّدة.</li>
+          <li><strong>صور احترافية:</strong> دمج صوركم المهنية في صفحات «من نحن» والفريق — لأن الثقة تبدأ
+            بالانطباع البصري.</li>
+          <li><strong>شهاد SSL وتشفير:</strong> حماية بيانات العملاء في نماذج التواصل والحجز — ضروري
+            لمكتب محاماة يتعامل مع معلومات حساسة.</li>
+          <li><strong>تصميم متجاوب:</strong> تجربة مثالية على الجوال — حيث يأتي غالبية الباحثين عن
+            محامٍ ويتّصلون مباشرة.</li>
+          <li><strong>سرعة وأداء:</strong> تحميل سريع يُعزّز SEO ويُقلّل معدّل الارتداد — كل ثانية
+            تأخير تُفقد فرصة تحويل.</li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>7 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 8: البنية التقنية ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">05 — الثقة والأمان والامتثال (تابع)</div>
+      <h2 class="section-title">بنية تقنية — استضافة ونطاق وتكاملات</h2>
+      <div class="section-divider"></div>
+
+      <h3>البنية التحتية والتسليم</h3>
+      <div class="feature-grid">
+        <div class="feature-item">
+          <h4>إعداد النطاق والاستضافة</h4>
+          <p>نُساعدكم في اختيار وإعداد النطاق والاستضافة — بما أنهما غير متوفرين حالياً، نُتولى الإعداد
+            الكامل حتى الإطلاق.</p>
+        </div>
+        <div class="feature-item">
+          <h4>تكامل Scheduling</h4>
+          <p>ربط نظام حجز المواعيد مع أداة جدولة احترافية — مزامنة تلقائية وتأكيدات للعملاء وفريقكم.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Google Analytics & Search Console</h4>
+          <p>إعداد وتكامل أدوات Google لقياس الأداء ومتابعة الفهرسة — أساس لقرارات SEO مدروسة.</p>
+        </div>
+        <div class="feature-item">
+          <h4>لوحة إدارة المحتوى</h4>
+          <p>CMS بسيط يُمكّنكم من تحديث المحتوى مستقبلاً — بدون الاعتماد على مطور في كل تعديل.</p>
+        </div>
+      </div>
+
+      <h3>مؤشرات النجاح — ما سنقيسه</h3>
+      <div class="authority-box">
+        <p>الموقع مُصمَّم لتحقيق أهدافكم القابلة للقياس:</p>
+        <ul>
+          <li><strong>طلبات الاستشارة:</strong> عدد الحجوزات الإلكترونية عبر نظام Scheduling — الهدف
+            الأساسي للتحويل.</li>
+          <li><strong>المكالمات الهاتفية:</strong> تتبّع النقرات على أزرار الاتصال — لقياس زيادة
+            المكالمات المباشرة.</li>
+          <li><strong>حركة المرور:</strong> نمو الزيارات العضوية والمدفوعة — مع Google Analytics.</li>
+          <li><strong>ترتيب البحث:</strong> تحسّن ظهوركم في نتائج Google للكلمات المفتاحية
+            القانونية المحلية.</li>
+          <li><strong>العقود السنوية:</strong> الموقع كقناة لجذب الشركات وتحقيق هدفكم — عشر
+            عقود سنوية ثابتة.</li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>8 / 11</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ PAGE 9: استراتيجية التنفيذ ══════════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">06 — استراتيجية التنفيذ</div>
+      <h2 class="section-title">إطلاق خلال أسبوع — بدون تعطيل</h2>
+      <div class="section-divider"></div>
+
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h4>التصميم وكتابة المحتوى</h4>
+            <p>تصميم واجهات مؤسسية فاخرة تعكس الأخضر العميق والذهبي. كتابة نصوص احترافية لجميع الصفحات
+              ومجالات الممارسة — Copywriting قانوني بمعايير وكالة.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h4>التطوير والتكاملات</h4>
+            <p>بناء الموقع، تفعيل نظام الحجز والمحادثة الفورية ونماذج التواصل، إعداد SEO التقني،
+              وربط Google Analytics — مع اختبار شامل على جميع الأجهزة.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h4>الإطلاق والتسليم</h4>
+            <p>إعداد النطاق والاستضافة، الإطلاق الرسمي، تسليم لوحة الإدارة، وجلسة تدريب لفريقكم
+              على إدارة المحتوى والحجوزات.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>بعد الإطلاق، يحصل فريق القيادة على:</p>
+        <ul>
+          <li><strong>موقع جاهز للعمل:</strong> خمس صفحات كاملة مع جميع التكاملات — حجز،
+            ونماذج تواصل.</li>
+          <li><strong>محتوى احترافي:</strong> نصوص جاهزة لكل صفحة ومجال ممارسة — بدون الحاجة لتوفير
+            السير الذاتية.</li>
+          <li><strong>SEO أساسي:</strong> بنية مُحسَّنة للفهرسة والترتيب — جاهزة لاستراتيجيتكم
+            المستمرة.</li>
+          <li><strong>ملكية كاملة:</strong> الكود، التصميم، والمحتوى — أصل رقمي ملك لرواء القانون.</li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>9 / 11</span>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ PAGE 10: الاستثمار ════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">07 — الاستثمار والمخرجات</div>
+      <h2 class="section-title">استثمار استراتيجي في حضوركم الرقمي</h2>
+      <div class="section-divider"></div>
+
+      <p>
+        هذا ليس مجرد موقع إلكتروني — إنه <strong>استثمار في أصل رقمي</strong> يُرسّخ اسم رواء القانون في السوق
+        السعودي، ويُحوّل حضوركم الرقمي إلى قناة فعّالة لجذب الشركات وتحقيق عقودكم السنوية. استثمار لمرة واحدة،
+        بدون اشتراكات شهرية.
+      </p>
+
+      <div class="pricing-card">
+        <div class="pricing-right">
+          <h3>هيكل الدفع</h3>
+          <p>دفعة واحدة مقسمة على مرحلتين — لضمان الالتزام المتبادل وجودة التسليم.</p>
+          <div class="payment-split">
+            <div class="payment-pill">
+              <div class="payment-pill-label">المرحلة الأولى: بدء المشروع</div>
+              <div class="payment-pill-value">40%</div>
+            </div>
+            <div class="payment-pill">
+              <div class="payment-pill-label">المرحلة الثانية: الإطلاق والتسليم</div>
+              <div class="payment-pill-value">60%</div>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-left">
+          <div class="price-label">إجمالي الاستثمار</div>
+          <div class="price-total">800<small> $</small></div>
+        </div>
+      </div>
+
+      <h3>مخرجات المشروع</h3>
+      <div class="authority-box">
+        <ul>
+          <li>5 صفحات كاملة: الرئيسية، من نحن، مجالات الممارسة، تواصل، حجز استشارة.</li>
+          <li>نظام حجز إلكتروني مع تكامل Scheduling.</li>
+          <li>كتابة محتوى احترافي (Copywriting) لجميع الصفحات.</li>
+          <li>SEO تقني ومحلي — Google Analytics وSearch Console.</li>
+          <li>إعداد النطاق والاستضافة.</li>
+          <li>تصميم متجاوب يعكس هوية رواء القانون.</li>
+          <li>ملكية كاملة 100% — الكود والتصميم والمحتوى.</li>
+        </ul>
+      </div>
+
+      <h3>الخطوات التالية</h3>
+      <div class="highlight-box">
+        <ul>
+          <li>مراجعة هذا العرض ومناقشته مع فريق القيادة.</li>
+          <li>تعديل أي تفاصيل حسب توجيهاتكم.</li>
+          <li>توقيع العقد والبدء — الإطلاق خلال 4 أسابيع.</li>
+        </ul>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>10 / 11</span>
+      </div>
+    </section>
+
+    <!-- ════════════════════════ PAGE 11: الإغلاق والتوقيع ════════════════════ -->
+    <section class="content-page page-break">
+      <div class="page-header">
+        <div class="page-header-logo">
+          <img src="Asset.png" alt="Logo" style="height: 20px; width: auto;" />
+        </div>
+        <div class="page-header-ref">PM-LAW-2026 · سري</div>
+      </div>
+
+      <div class="section-eyebrow">07 — الاستثمار والمخرجات (تابع)</div>
+      <h2 class="section-title">شريك يُترجم خبرتكم إلى حضور رقمي</h2>
+      <div class="section-divider"></div>
+
+      <div class="closing-section">
+        <h2 style="color:var(--white); font-size:1.3rem; margin-bottom:10px;">
+          لماذا Prime Metric — ولماذا الآن
+        </h2>
+        <p>
+          رواء القانون تمتلك ما يبحث عنه السوق: <strong>خبرة متمرّسة، تخصّص دقيق، وتواصل مباشر.</strong> ما
+          ينقصكم ليس القدرة القانونية — بل منصة رقمية تُعكس هذه القيمة من اللحظة الأولى. نحن لا نبني مواقع
+          عامة؛ نبني <strong>أصولاً رقمية</strong> تُحوّل الزائر إلى عميل، وتُرسّخ اسمكم في الرياض وجدة
+          والمنطقة الشرقية.
+        </p>
+        <p>
+          هدفكم — عشر عقود سنوية وبناء اسم في السوق — يبدأ بحضور رقمي يستحق ثقتكم. <strong>نحن جاهزون
+            للبدء.</strong>
+        </p>
+        <div class="signature-block">
+          <div class="signature-col">
+            <h4>مُقدَّم إلى</h4>
+            <div class="signature-name">أحمد بن حمد العنزي</div>
+            <div class="signature-role">المدير التنفيذي — رواء القانون للمحاماة</div>
+            <div class="signature-role">info@legalahmed.com</div>
+            <div class="signature-role">+966 50 081 6464</div>
+          </div>
+          <div class="signature-col">
+            <h4>بواسطة</h4>
+            <div class="signature-name">فريق Prime Metric</div>
+            <div class="signature-role">متخصصون في الحلول الرقمية المؤسسية</div>
+            <div class="signature-role">info@primemetric.net</div>
+            <div class="signature-role">+20 111 173 2948</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <div>Prime Metric Software Company · رواء القانون</div>
+        <span>11 / 11</span>
+      </div>
+    </section>
+
+  </div>
+</body>
+
+</html>
